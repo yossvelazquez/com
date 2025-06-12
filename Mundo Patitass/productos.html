@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de productos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <div class="logo-container">
+            <img src="img/mundo patitas.png" alt="Mundo Patitas Logo" class="logo">
+        </div>
+        <div class="nav-container">
+            <h1>🐾Mundo Patitas🐾</h1><br>
+            <nav>
+                <ul class="nav-list">
+                    <li><button class="btn" onclick="location.href='index.html'">Inicio</button></li>
+                    <li><button class="btn" onclick="location.href='juego.html'">Juega en linea</button></li>
+                    <li><button class="btn buttonn"
+                            onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfIa6b1T-JA1drtKL-Cvx5lgJ9AsLH1JEErxoSNrmECNuFoWA/viewform?usp=sharing&ouid=114447116514947064335', '_blank')">Encuesta de Satisfacción</button></li>
+                </ul>
+            </nav>
+            <br>
+        </div>
+    </header>
+    <h1>Productos disponibles 🛒</h1><br>
+    <section id="Pedido">
+
+    <h3>Formulario para realizar pedido por WhatsApp</h3><br>
+    <p>Selecciona el producto que deseas y envía tu pedido por WhatsApp. Recuerda que puedes elegir varios modelos de un mismo producto.</p><br>
+ <script>
+
+        function mostrarModelos() {
+            const producto = document.getElementById('producto').value;
+            const bloques = document.querySelectorAll('.producto-imgs');
+            bloques.forEach(b => b.classList.remove('active'));
+
+            const bloqueActivo = document.getElementById('modelos-' + producto.replace(/\s+/g, ''));
+            if (bloqueActivo) {
+                bloqueActivo.classList.add('active');
+            }
+        }
+    function enviarPedido() {
+    const nombre = document.getElementById('nombre').value;
+    const color = document.getElementById('color').value;
+    const talla = document.getElementById('talla').value;
+    const cantidad = document.getElementById('cantidad').value;
+    const mascota = document.getElementById('mascota').value;
+
+    const modelosSeleccionados = Array.from(document.querySelectorAll('input[name="modelo"]:checked'))
+        .map(el => el.value);
+
+    if (modelosSeleccionados.length === 0) {
+        alert("Por favor selecciona al menos un producto.");
+        return;
+    }
+
+    const mensaje = `Hola, me llamo ${nombre}. Quiero pedir los siguientes productos:\n\n` +
+                    modelosSeleccionados.map((m, i) => `${i + 1}. ${m}`).join('\n') +
+                    `\n\nColor: ${color}\nTalla: ${talla}\nCantidad de cada uno: ${cantidad}\nPara un(a): ${mascota}.`;
+
+    const url = `https://wa.me/4436938809?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+    alert("Pedido enviado correctamente. ¡Gracias por tu compra!");
+    document.querySelector('form').reset();
+    mostrarModelos();
+    }
+ </script>
+
+    <form onsubmit="enviarPedido(); return false;">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br><br>
+
+        <label for="producto">Producto:</label>
+        <select id="producto" name="producto" onchange="mostrarModelos()" required>
+            <option value="">Selecciona un producto</option>
+            <option value="Collares">Collares</option>
+            <option value="Juguetes">Juguetes</option>
+            <option value="Ropa">Ropa</option>
+            <option value="casas">Casas</option>
+            <option value="cuidado">Cuidado de mascotas</option>
+        </select>
+        <br><br>
+
+        <!-- Modelos de Collares -->
+        <div id="modelos-Collares" class="producto-imgs">
+            <h3>Modelos de collares:</h3><br>
+            <div class="modelo-opcion">
+                <img src="img/collaresperrogrande.jpg" alt="Collar perro grande">
+                <p class="precio">$80 MXN</p>
+                <input type="checkbox" name="modelo" value="Collar modelo 1 perro grande - $120">
+                <label>Modelo 1 perro grande</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/collaresperrochico.jpg" alt="Collar perro chico">
+                <p class="precio">$45 MXN</p>
+                <input type="checkbox" name="modelo" value="Collar modelo 2 perro o gato chico - $150">
+                <label>Modelo 2 perro o gato chico</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/collarconcorrea.jpg" alt="Collar con correa">
+                <p class="precio">$120 MXN</p>
+                <input type="checkbox" name="modelo" value="Collar modelo 3 con correa, mixto - $180">
+                <label>Modelo 3 mixto</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/pechera.jpeg" alt="pechera con correa perro">
+                <p class="precio">$160 MXN</p>
+                <input type="checkbox" name="modelo" value="pechera modelo 4 con correa, perro - $180">
+                <label>Modelo 4 pechera</label>
+            </div><div class="modelo-opcion">
+                <img src="img/pechera2.jpg" alt="pechera con correa perro">
+                <p class="precio">$60 MXN</p>
+                <input type="checkbox" name="modelo" value="pechera modelo 5 con correa, perro- $180">
+                <label>Modelo 5 pechera</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/pecheragato.jpeg" alt="pechera con correa perro">
+                <p class="precio">$55 MXN</p>
+                <input type="checkbox" name="modelo" value="pechera modelo 6 con correa, gato- $180">
+                <label>Modelo 6 gato pechera</label>
+            </div>
+        </div>
+
+        <!-- Modelos de Juguetes -->
+        <div id="modelos-Juguetes" class="producto-imgs">
+            <h3>Modelos de juguetes para gatos:</h3>
+            <div class="modelo-opcion">
+                <img src="img/gato1.jpg" alt="Juguete 1">
+                <p class="precio">$80 MXN</p>
+                <input type="checkbox" name="modelo" value="Juguete Modelo 1 gato - $80">
+                <label>Modelo 1 gato</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/gatoraton.webp" alt="Juguete 2">
+                <p class="precio">$50 MXN</p>
+                <input type="checkbox" name="modelo" value="Juguete Modelo 2 gato - $50">
+                <label>Modelo 2 gato</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/gatotuvo.jpeg" alt="Juguete 3">
+                <p class="precio">$110 MXN</p>
+                <input type="checkbox" name="modelo" value="Juguete Modelo 3 gato - $110">
+                <label>Modelo 3 gato</label>
+            </div>
+            <h3>Modelos de juguetes para perros:</h3>
+              <div class="modelo-opcion">
+                <img src="img/perrocomida.jpeg" alt="Juguete 3">
+                <p class="precio">$60 MXN</p>
+                <input type="checkbox" name="modelo" value="Juguete Modelo 1 perro - $60">
+                <label>Modelo 1 perro</label>
+            </div>  <div class="modelo-opcion">
+                <img src="img/perroganzo.jpg" alt="Juguete 3">
+                <p class="precio">$50 MXN</p>
+                <input type="checkbox" name="modelo" value="Juguete Modelo 2 perro - $50">
+                <label>Modelo 2 perro</label>
+            </div>  <div class="modelo-opcion">
+                <img src="img/perropelota.jpg" alt="Juguete 3">
+                <p class="precio">$35 MXN</p>
+                <input type="checkbox" name="modelo" value="Juguete Modelo 3 perro - $35">
+                <label>Modelo 3 perro</label>
+            </div>
+        </div>
+
+
+        <!-- Modelos de Ropa -->
+        <div id="modelos-Ropa" class="producto-imgs">
+            <h3>Modelos de ropa de gato:</h3><br>
+            <div class="modelo-opcion">
+                <img src="img/ropagato1.jpg" alt="Ropa 1">
+                <p class="precio">$120 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 1 gato - $120">
+                <label>Modelo 1 gato</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/ropagato2.jpg" alt="Ropa 2">
+                <p class="precio">$130 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 2 gato- $130">
+                <label>Modelo 2 gato</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/ropagato3.jpg" alt="Ropa 3">
+                <p class="precio">$70 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 3 gato - $70">
+                <label>Modelo 3 gato</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/ropagato4.jpg" alt="Ropa 3">
+                <p class="precio">$70 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 4 - $70">
+                <label>Modelo 4</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/ropagato5.jpg" alt="Ropa 3">
+                <p class="precio">$70 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 5 gato - $70">
+                <label>Modelo 5 gato</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/ropagato6.jpg" alt="Ropa 3">
+                <p class="precio">$120 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 6 gato- $120">
+                <label>Modelo 6 gato</label>
+            </div><br>
+            <strong>Modelos de ropa de perro:</strong><br>
+            <div class="modelo-opcion">
+                <img src="img/ropaperro1.jpg" alt="Ropa 3">
+                <p class="precio">$90 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 1 perro - $90">
+                <label>Modelo 1</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/ropaperro2.jpg" alt="Ropa 3">
+                <p class="precio">$150 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 2 perro- $150">
+                <label>Modelo 2 perro</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/ropaperro3.jpg" alt="Ropa 3">
+                <p class="precio">$75 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 3 perro- $75">
+                <label>Modelo 3 perro</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/ropaperro4.jpg" alt="Ropa 3">
+                <p class="precio">$110 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 4 perro- $110">
+                <label>Modelo 4 perro</label>
+            </div><div class="modelo-opcion">
+                <img src="img/ropaperro5.jpg" alt="Ropa 3">
+                <p class="precio">$100 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 5 perro- $100">
+                <label>Modelo 5 perro</label>
+            </div><div class="modelo-opcion">
+                <img src="img/ropaperro6.jpg" alt="Ropa 3">
+                <p class="precio">$120 MXN</p>
+                <input type="checkbox" name="modelo" value="Ropa Modelo 6 perro- $120">
+                <label>Modelo 6 perro</label>
+            </div>
+        </div>
+        <!-- Modelos de casas -->
+        <div id="modelos-casas" class="producto-imgs">
+            <h3>Modelos de casas de gato:</h3><br>
+            <div class="modelo-opcion">
+                <img src="img/casagato.jpg" alt="Ropa 1">
+                <p class="precio">$530 MXN</p>
+                <input type="checkbox" name="modelo" value="Casa Modelo 1 gato - $530">
+                <label>Modelo 1 gato</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/casagato2.jpg" alt="Ropa 1">
+                <p class="precio">$350 MXN</p>
+                <input type="checkbox" name="modelo" value="Casa Modelo 2 gato - $350">
+                <label>Modelo 2 gato</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/casagato3.jpg" alt="Ropa 1">
+                <p class="precio">$250 MXN</p>
+                <input type="checkbox" name="modelo" value="Casa Modelo 3 gato - $250">
+                <label>Modelo 3 gato</label>
+            </div><br>
+            <h3>Modelos de casas de perro:</h3><br>
+              <div class="modelo-opcion">
+                <img src="img/casaperro.jpg" alt="Ropa 1">
+                <p class="precio">$550 MXN</p>
+                <input type="checkbox" name="modelo" value="Casa Modelo 1 perro - $550">
+                <label>Modelo 1 perro</label>
+            </div>
+              <div class="modelo-opcion">
+                <img src="img/casaperro2.jpg" alt="Ropa 1">
+                <p class="precio">$300 MXN</p>
+                <input type="checkbox" name="modelo" value="Casa Modelo 2 perro - $300">
+                <label>Modelo 2 perro</label>
+            </div>
+              <div class="modelo-opcion">
+                <img src="img/casaperro3.jpg" alt="Ropa 1">
+                <p class="precio">$500 MXN</p>
+                <input type="checkbox" name="modelo" value="Casa Modelo 3 perro - $500">
+                <label>Modelo 3 perro</label>
+            </div>
+        </div>
+        <!-- Modelos de cuidado -->
+            <div id="modelos-cuidado" class="producto-imgs">
+            <h3>Cuidados de gato:</h3><br>
+            <div class="modelo-opcion">
+                <img src="img/mochilagato.jpeg" alt="Ropa 1">
+                <p class="precio">$200 MXN</p>
+                <input type="checkbox" name="modelo" value="Mochila Modelo 1 gato - $200">
+                <label>Modelo 1 Mochila</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/mochilaperro.jpg" alt="Ropa 1">
+                <p class="precio">$200 MXN</p>
+                <input type="checkbox" name="modelo" value="Maleta Modelo 1 gato - $200">
+                <label>Modelo 1 Maleta</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/cajarernerogato.jpg" alt="Ropa 1">
+                <p class="precio">$180 MXN</p>
+                <input type="checkbox" name="modelo" value="Arenero Modelo 1 gato - $180">
+                <label>Modelo 1 Arenero</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/cepillogato.jpg" alt="Ropa 1">
+                <p class="precio">$130 MXN</p>
+                <input type="checkbox" name="modelo" value="Cepillo Modelo 1 mixto - $130">
+                <label>Modelo 1 Cepillo</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/bolsasperrogato.jpg" alt="Ropa 1">
+                <p class="precio">$150 MXN</p>
+                <input type="checkbox" name="modelo" value="Bolsas Modelo 1 mixto - $150">
+                <label>Modelo 1 bolsas</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/quitapelusa.jpeg" alt="Ropa 1">
+                <p class="precio">$50 MXN</p>
+                <input type="checkbox" name="modelo" value="Quita pelusa Modelo 1 mixto - $50">
+                <label>Modelo 1 quita pelusa</label>
+            </div>
+            <div class="modelo-opcion">
+                <img src="img/guantecepillo.jpeg" alt="Ropa 1">
+                <p class="precio">$50 MXN</p>
+                <input type="checkbox" name="modelo" value="Guante Modelo 1 mixto - $50">
+                <label>Modelo 1 guante</label>
+            </div>
+        </div>
+        <br><br>
+        <label for="mascota">Mascota</label>
+        <select id="mascota" name="mascota" required>
+            <option value="">Seleccione una mascota</option>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Perro y gato">Perro y gato</option>
+        </select>
+
+        <label for="color">Color:</label>
+        <select id="color" name="color" required>
+            <option value="">Seleccione un color</option>
+            <option value="predeterminado">predeterminado</option>
+            <option value="Verde">Verde</option>
+            <option value="Azul">Azul</option>
+            <option value="Negro">Negro</option>
+            <option value="Blanco">Blanco</option>
+            <option value="Rosa">Rosa</option>
+            <option value="cafe">Cafe</option>
+            <option value="amarillo">Amarillo</option>
+
+        </select>
+        <br><br>
+
+        <label for="talla">Talla:</label>
+        <select id="talla" name="talla" required>
+            <option value="">Seleccione una talla</option>
+            <option value="Chico">Chico</option>
+            <option value="Mediano">Mediano</option>
+            <option value="Grande">Grande</option>
+            <option value="predeterminado"><P>Predeterminaado</P></option>
+        </select>
+        <br><br>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" min="1" required>
+        <br><br>
+
+        <button type="submit" style="background-color: #e0821e; color: white; padding: 12px 24px; border: none; border-radius: 8px;">Enviar pedido por WhatsApp</button>
+    </form>
+</section>
+</div>
+</body>
+</html>

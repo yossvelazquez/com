@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Atrapar Mascotas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <div class="container-juego">
+    <header>
+        <div class="logo-container">
+            <img src="img/mundo patitas.png" alt="Mundo Patitas Logo" class="logo">
+        </div>
+        <div class="nav-container">
+            <h1>🐾Mundo Patitas🐾</h1>
+            <br>
+        <nav>
+          <ul>
+            <li><button class="btn" onclick="location.href='index.html'">Inicio</button></li>
+            <li><button class="btn" onclick="location.href='productos.html'">Tienda en linea</button></li>
+            <li><button class="btn" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSfIa6b1T-JA1drtKL-Cvx5lgJ9AsLH1JEErxoSNrmECNuFoWA/viewform?usp=sharing&ouid=114447116514947064335'">Encuesta de satisfacción</button></li>
+          </ul>    
+        <nav>
+         
+        </div>
+    </header>
+
+    <main class="container">
+        <h1> Atrapa Mascotas 🎯</h1>
+        <br>
+        <div class="instrucciones">
+            <h2>Instrucciones:</h2>
+                Haz clic en el botón "Iniciar Juego" para comenzar.<br>
+                Haz clic en las mascotas que aparecen en el cuadro de juego.<br>
+                Cada mascota atrapada te da puntos.<br>
+                El juego dura 30 segundos, ¡intenta atrapar la mayor cantidad posible!.<br>
+                Tu puntaje se mostrará en la parte superior.<br>
+        </div>
+        <button id="iniciar" class="btn btn-juego">Iniciar Juego</button>
+        <div id="puntaje" class="info">Puntaje: 0</div>
+        <div id="juego" class="juego-cuadro"></div>
+        <div id="reloj" class="info">Tiempo: 30</div>
+
+        <a href="index.html" class="btn btn-regresar">Regresar al inicio</a>
+    </main>
+
+    <script src="jueguito.js"></script>
+    </div>
+</body>
+</html>

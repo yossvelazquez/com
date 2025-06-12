@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #619cb6;
+    margin: 0;
+    padding: 20px;
+    color: #37474f;
+    text-align: center;
+}
+
+h1 {
+    color: #42a5f5;
+    font-size: 2.3em;
+    margin-bottom: 10px;
+    font-family: 'Baloo 2', cursive;
+}
+
+p {
+    margin: 10px 0;
+    font-size: 1.2em;
+    line-height: 1.5;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: center;
+}
+
+h2,
+h3 {
+    color: #da951e;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-family: 'Baloo 2', cursive;
+}
+
+.descripcion-tienda {
+    font-family: 'Baloo 2', cursive;
+    background-color: #fffaf2;
+    border: 3px dashed #f6a96d;
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    color: #5a4b41;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.descripcion-tienda h2 {
+    font-size: 28px;
+    color: #ff8c42;
+    margin-bottom: 20px;
+}
+
+.descripcion-tienda p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.ubicacion-sucursal h2 {
+    color: #ff8c42;
+    font-weight: bold;
+}
+
+.mascotas-img {
+    display: block;
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.btn, 
+.buttonn {
+    background-color: #42a5f5;
+    color: white;
+    padding: 10px 20px;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 24px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    transition: background-color 0.3s, transform 0.2s;
+    font-family: 'Baloo 2', cursive;
+    font-size: large;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+.btn:hover,
+.buttonn:hover {
+    background-color: #ce851f;
+    transform: translateY(-3px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+}
+
+.logo {
+    width: 180px;
+    height: auto;
+    margin: 5px auto 20px auto;
+    background-color: #57a2b5;
+    border-radius: 50%;
+}
+
+.nav-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.productos-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-container img {
+    width: 150px;
+}
+
+.nav-container h1 {
+    font-size: 2em;
+    color: #4a90e2;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #4a90e2;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+nav ul li a:hover {
+    color: #fff;
+    background-color: #ce851f;
+}
+
+.producto-imgs {
+    display: none;
+}
+
+.producto-imgs.active {
+    display: block;
+}
+
+.modelo-opcion {
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+    width: 120px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+.modelo-opcion img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+.precio {
+    font-weight: bold;
+    color: green;
+}
+
+.modelo-opcion:hover {
+    background-color: #dfeef0;
+    cursor: pointer;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.redes-sociales {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.redes-sociales a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #42a5f5;
+    font-size: 1em;
+    transition: color 0.3s, transform 0.2s;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.redes-sociales a:hover {
+    color: #ce851f;
+    transform: scale(1.15);
+}
+
+/* Estilos del Juego */
+.instrucciones-juego {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #37474f;
+    line-height: 1.5;
+    font-family: 'Baloo 2', cursive;
+}
+/* Cuadro de juego */
+.juego-cuadro {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    border: 4px dashed #505459;
+    border-radius: 12px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+/* Mascotas */
+.mascota {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.mascota:hover {
+    transform: scale(1.1);
+}
+.mascota img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.container-juego {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 16px;
+}
+.btn-regresar {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+}
+.btn-juego{
+    background-color: #81a3d3;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn-regresar{
+    background-color: #81a3d3;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+/* Botones */
+.btn:hover {
+    background-color: #ce851f;
+}
+.btn-juego:hover {
+    background-color: #ce851f;
+}
+.btn-regresar:hover {
+    background-color: #ce851f;
+}
